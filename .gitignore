@@ -1,5 +1,10 @@
-#.idea files
-*.idea
+# Ignore build output
+out/
+
+# IntelliJ IDEA specific files
+.idea/
+*.iml
+
 
 # Compiled class file
 *.class
