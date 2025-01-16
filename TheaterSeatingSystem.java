@@ -1,11 +1,20 @@
 import java.util.Scanner;
 
+/**
+ * The TheaterSeatingSystem class simulates a movie theater booking system
+ * where users can view the seating chart, reserve seats, and cancel reservations.
+ */
 public class TheaterSeatingSystem {
-    private static final int rows = 9;
-    private static final int cols = 9;
-    private static char[][] seats = new char[rows][cols];
-    private static Scanner input = new Scanner(System.in); // Global Scanner
+    private static final int rows = 9; // Number of rows in the theater
+    private static final int cols = 9; // Number of columns in the theater
+    private static char[][] seats = new char[rows][cols]; // Seating arrangement
+    private static Scanner input = new Scanner(System.in); // Scanner for user input
 
+    /**
+     * Main method to run the movie theater booking system.
+     *
+     * @param args Command-line arguments (not used).
+     */
     public static void main(String[] args) {
         initializeSeats();
 
@@ -38,14 +47,20 @@ public class TheaterSeatingSystem {
         }
     }
 
+    /**
+     * Initializes the seating chart with all seats marked as available ('A').
+     */
     private static void initializeSeats() {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
-                seats[i][j] = 'A'; // 'A' for Available
+                seats[i][j] = 'A'; // 'A' represents an available seat
             }
         }
     }
 
+    /**
+     * Displays the current seating chart, showing which seats are available and reserved.
+     */
     private static void displaySeatingChart() {
         System.out.println("\nSeating Plan:");
         System.out.print("   ");
@@ -62,6 +77,10 @@ public class TheaterSeatingSystem {
         }
     }
 
+    /**
+     * Allows the user to reserve a seat. If the seat is already reserved,
+     * it suggests an available seat.
+     */
     private static void reserveSeat() {
         System.out.print("\nEnter seat number (e.g., A1): ");
         String seatNumber = input.next().toUpperCase();
@@ -82,6 +101,10 @@ public class TheaterSeatingSystem {
         }
     }
 
+    /**
+     * Allows the user to cancel a reservation for a specific seat.
+     * If the seat is already available, it notifies the user.
+     */
     private static void cancelReservation() {
         System.out.print("\nEnter seat number (e.g., A1): ");
         String seatNumber = input.next().toUpperCase();
@@ -101,6 +124,10 @@ public class TheaterSeatingSystem {
         }
     }
 
+    /**
+     * Suggests the first available seat in the seating chart.
+     * If a seat is available, the user is prompted to reserve it.
+     */
     private static void suggestAvailableSeat() {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
